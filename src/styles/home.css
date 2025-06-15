@@ -1,0 +1,230 @@
+/* src/styles/home.css */
+
+/* Container principal da página Home */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1.5rem;
+    gap: 4rem; /* Espaçamento entre as seções */
+    max-width: 1400px;
+    margin: 0 auto; /* Centraliza o container na página */
+}
+
+/* Seção de Boas-Vindas (Hero Section) */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5rem 2rem;
+    background: linear-gradient(145deg, #1e1f26, #2b2d42); /* Fundo escuro do tema */
+    border-radius: 25px;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.8); /* Sombra mais dramática */
+    width: 100%;
+    max-width: 1000px;
+    border: 2px solid rgba(239, 131, 84, 0.4); /* Borda sutil de destaque */
+    animation: pulse-border 4s infinite ease-in-out; /* Animação de pulso na borda */
+}
+
+@keyframes pulse-border {
+    0% {
+        border-color: rgba(239, 131, 84, 0.4);
+        box-shadow: 0 20px 80px rgba(0, 0, 0, 0.8);
+    }
+    50% {
+        border-color: rgba(239, 131, 84, 0.8);
+        box-shadow: 0 20px 100px rgba(0, 0, 0, 0.9), 0 0 15px rgba(239, 131, 84, 0.5);
+    }
+    100% {
+        border-color: rgba(239, 131, 84, 0.4);
+        box-shadow: 0 20px 80px rgba(0, 0, 0, 0.8);
+    }
+}
+
+
+.hero-title {
+    color: #ef8354; /* Laranja de destaque */
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 15px #ef8354, 0 0 30px rgba(239, 131, 84, 0.7); /* Efeito de brilho */
+    font-weight: 800;
+    letter-spacing: 2px;
+    animation: text-glow 2s infinite alternate; /* Animação de brilho no texto */
+}
+
+@keyframes text-glow {
+    0% { text-shadow: 0 0 10px #ef8354, 0 0 20px rgba(239, 131, 84, 0.7); }
+    100% { text-shadow: 0 0 20px #ef8354, 0 0 40px rgba(239, 131, 84, 0.9); }
+}
+
+
+.hero-subtitle {
+    color: #cccccc; /* Cinza claro para o subtítulo */
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+}
+
+.hero-button {
+    background: linear-gradient(145deg, #00ff00, #00b300); /* Verde neon */
+    font-weight: 700;
+    padding: 1rem 2.5rem;
+    cursor: pointer;
+    border-radius: 12px;
+    border: none;
+    transition: all 0.3s ease;
+    color: #1a1a2e; /* Texto escuro */
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5); /* Sombra neon */
+}
+
+.hero-button:hover {
+    background: linear-gradient(145deg, #00b300, #00ff00);
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.8); /* Brilho mais intenso no hover */
+    transform: translateY(-3px) scale(1.02);
+}
+
+/* Seção de Rankings */
+.rankings-section {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cards quebrem a linha */
+    justify-content: center; /* Centraliza os cards */
+    gap: 2rem; /* Espaçamento entre os cards */
+    width: 100%;
+    max-width: 1200px; /* Limite para a largura total da seção de rankings */
+}
+
+.ranking-card {
+    background: rgba(25, 26, 41, 0.85); /* Fundo escuro semitransparente */
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(239, 131, 84, 0.2); /* Borda sutil */
+    width: 100%;
+    max-width: 480px; /* Largura máxima para cada card de ranking */
+    font-family: 'Courier New', Courier, monospace; /* Fonte monoespaçada para estilo hacker */
+    color: #f0f0f0; /* Cor de texto padrão para o card */
+}
+
+.ranking-title {
+    color: #ef8354; /* Laranja de destaque */
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.ranking-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #ef8354, transparent);
+    border-radius: 2px;
+    margin: 0.75rem auto 0;
+}
+
+.ranking-list {
+    list-style: none;
+    padding: 0;
+}
+
+.ranking-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.15); /* Linha tracejada sutil */
+    font-size: 1.1rem;
+}
+
+.ranking-item:last-child {
+    border-bottom: none; /* Remove a borda do último item */
+}
+
+.ranking-number {
+    color: #00ff00; /* Verde neon para o número do ranking */
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.ranking-name {
+    flex-grow: 1; /* Permite que o nome ocupe o espaço restante */
+    text-align: left;
+    color: #fff; /* Nome em branco */
+}
+
+.ranking-value {
+    color: #ffb997; /* Laranja claro para o valor */
+    font-weight: bold;
+    text-align: right;
+}
+
+/* Estilo para mensagem de carregamento */
+.loading-rank {
+    text-align: center;
+    font-style: italic;
+    color: #aaa;
+    padding: 1rem 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 4rem 1.5rem;
+    }
+    .hero-title {
+        font-size: 3rem;
+    }
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    .hero-button {
+        font-size: 1.1rem;
+        padding: 0.8rem 2rem;
+    }
+    .ranking-card {
+        max-width: 100%; /* Cards de ranking ocupam a largura total em telas menores */
+    }
+    .ranking-title {
+        font-size: 1.8rem;
+    }
+    .ranking-item {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-container {
+        padding: 1.5rem 1rem;
+        gap: 2.5rem;
+    }
+    .hero-section {
+        padding: 3rem 1rem;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    .hero-button {
+        font-size: 1rem;
+        padding: 0.7rem 1.5rem;
+    }
+    .ranking-card {
+        padding: 1.5rem;
+    }
+    .ranking-title {
+        font-size: 1.5rem;
+    }
+    .ranking-item {
+        font-size: 0.9rem;
+    }
+}

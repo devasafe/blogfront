@@ -1,0 +1,151 @@
+/* app.css */
+
+/* Container da aplicação */
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Cabeçalho com nova paleta e separador no título */
+.App-header {
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(25, 26, 41, 0.85);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6);
+  gap: 1rem;
+}
+
+.App-header h1 {
+  color: #ef8354;
+  font-size: 2.8rem;
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+/* Separador abaixo do título */
+.App-header h1::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: #ef8354;
+  border-radius: 3px;
+  margin: 0.5rem auto 0;
+}
+
+/* Logo */
+.App-logo {
+  height: 36vmin;
+  filter: drop-shadow(0 0 15px rgba(239, 131, 84, 0.9));
+  animation: App-logo-spin infinite 20s linear;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Links internos */
+.App-link {
+  color: #ef8354;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.App-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: #ef8354;
+  transition: width 0.3s ease;
+}
+
+.App-link:hover {
+  color: #ffd8b1;
+}
+
+.App-link:hover::after {
+  width: 100%;
+}
+
+/* Estilo dos posts e comentários */
+.post,
+.comment {
+  background: linear-gradient(145deg, #2a2a3d, #1e1e30);
+  border-left: 4px solid #ef8354;
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+  transition: background 0.3s, transform 0.3s;
+  position: relative;
+  text-align: center;
+}
+
+.post:hover,
+.comment:hover {
+  background: linear-gradient(145deg, #2e2e4a, #202033);
+  transform: translateY(-3px);
+}
+
+/* Título do post centralizado */
+.post h3 {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+/* Linha separadora abaixo do título */
+.post h3::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 80%;
+  margin: 1rem auto 0;
+  background: linear-gradient(to right, transparent, #ef8354, transparent);
+  border-radius: 5px;
+}
+
+/* Separador elegante entre posts */
+.post + .post {
+  margin-top: 2rem;
+  position: relative;
+}
+
+.post + .post::before {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 80%;
+  margin: -1rem auto 1rem;
+  background: linear-gradient(to right, transparent, #ef8354, transparent);
+  border-radius: 5px;
+}
+
+/* Separador entre comentários, mais leve */
+.comment + .comment::before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 85%;
+  margin: 1.5rem auto;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1px;
+}

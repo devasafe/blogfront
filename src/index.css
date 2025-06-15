@@ -1,0 +1,146 @@
+/* index.css */
+
+/* Reset geral */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fonte e plano de fundo base */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(145deg, #1e1f26, #2b2d42);
+  color: #e5e5e5;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: text;
+}
+
+/* Container centralizado */
+.container {
+  width: 100%;
+  max-width: 900px;
+  padding: 0 1.5rem;
+}
+
+/* Navegação com destaque sutil */
+nav {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(25, 26, 41, 0.85);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(239, 131, 84, 0.5);
+}
+
+/* Links com animação de sublinhado */
+a {
+  color: #ef8354;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: #ef8354;
+  transition: width 0.3s ease;
+}
+
+a:hover {
+  color: #ffd8b1;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* Campos de formulário */
+input,
+textarea {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  color: #e5e5e5;
+  border: none;
+  padding: 1rem;
+  border-radius: 12px;
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+  width: 100%;
+  max-width: 600px;
+}
+
+h1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input:focus,
+textarea:focus {
+  border: 1px solid rgba(239, 131, 84, 0.6);
+  box-shadow: 0 0 10px rgba(239, 131, 84, 0.6);
+}
+
+/* Botões estilosos */
+button {
+  background: linear-gradient(145deg, #ef8354, #ffb997);
+  font-weight: 700;
+  padding: 0.8rem 1.6rem;
+  cursor: pointer;
+  border-radius: 12px;
+  border: none;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  color: #1e1f26;
+}
+
+button:hover {
+  background: linear-gradient(145deg, #ffb997, #ef8354);
+  box-shadow: 0 0 15px rgba(239, 131, 84, 0.6);
+}
+
+/* Scrollbar custom */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1e1f26;
+}
+::-webkit-scrollbar-thumb {
+  background: #ef8354;
+  border-radius: 4px;
+}
+
+/* Responsividade */
+@media (max-width: 640px) {
+  nav {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .App-header {
+    padding: 2rem 1rem;
+  }
+
+  input,
+  textarea,
+  button {
+    padding: 0.8rem;
+  }
+}

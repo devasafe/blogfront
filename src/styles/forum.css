@@ -1,0 +1,338 @@
+/* Layout principal que centraliza o conteúdo geral */
+.forum-container {
+  display: flex;
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  align-items: flex-start; /* Alinha o conteúdo ao topo */
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* NOVO: Container para as colunas de layout (conteúdo principal e sidebar direita) */
+.forum-layout-columns {
+  display: flex;
+  gap: 2rem; /* Espaçamento entre as colunas */
+  width: 100%; /* Ocupa a largura total do seu pai (.forum-container) */
+  max-width: 1200px; /* Aumentado o max-width para acomodar duas colunas confortavelmente */
+  align-items: flex-start; /* Alinha as colunas ao topo */
+  justify-content: space-between; /* Distribui o espaço entre as colunas */
+}
+
+/* Conteúdo principal (posts e formulário) */
+.forum-main {
+  flex: 1; /* Permite que ocupe o espaço restante */
+  max-width: 900px; /* Largura máxima para o conteúdo principal */
+  min-width: 900px; /* Ajustado para ser um pouco mais flexível na largura mínima */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-height: 60vh;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+}
+
+/* NOVO: Sidebar de categorias (agora à direita) */
+.forum-right-sidebar {
+  width: 280px; /* Ajustado para ser um pouco mais largo, se desejar */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  min-height: 200px; /* Garante altura mínima */
+  flex-shrink: 0; /* Impede que encolha */
+  box-sizing: border-box;
+}
+
+.forum-right-sidebar h3 {
+  color: #ef8354;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.forum-right-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.forum-right-sidebar li {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  box-sizing: border-box;
+}
+
+.forum-right-sidebar li:hover {
+  background: rgba(239, 131, 84, 0.25);
+}
+
+.forum-right-sidebar li.active {
+  background: rgba(239, 131, 84, 0.5);
+  font-weight: bold;
+}
+
+.clear-filter {
+  text-align: center;
+  color: #ef8354;
+  font-weight: 600;
+}
+
+/* Container geral do formulário (mantido como está, mas seu pai é agora .forum-main) */
+.forum-form-container {
+  width: 100%; /* Ocupa 100% da largura do .forum-main */
+  /* Removido o width fixo de 800px, agora ele se adapta ao forum-main */
+  background: none; /* Remove background pois já está no forum-main */
+  padding: 0; /* Removido padding, já está no forum-main ou será ajustado nos elementos internos */
+  border-radius: 0; /* Removido */
+  box-shadow: none; /* Removido */
+  backdrop-filter: none; /* Removido */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Título da área de postagem */
+.forum-form-container h3 {
+  color: #ef8354;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  position: relative;
+}
+
+.forum-form-container h3::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #ef8354;
+  border-radius: 2px;
+  margin: 0.5rem auto 0;
+}
+
+/* Organização dos inputs */
+.forum-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+  align-items: center;
+  min-height: 350px;
+  box-sizing: border-box;
+}
+
+.forum-form input,
+.forum-form textarea,
+.forum-form select {
+  width: 98%;
+  max-width: 700px;
+  padding: 1rem;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #7e7e7e;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.forum-form input:focus,
+.forum-form textarea:focus {
+  border: 2px solid #ef8354;
+  box-shadow: 0 0 10px rgba(239, 131, 84, 0.6);
+}
+
+.forum-form textarea {
+  height: 120px;
+  resize: none;
+  border-radius: 12px;
+}
+
+/* Botão de envio */
+.forum-form button {
+  background: linear-gradient(145deg, #ef8354, #ffb997);
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.8rem 1.6rem;
+  border-radius: 12px;
+  border: none;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  color: #1e1f26;
+  text-transform: uppercase;
+  box-sizing: border-box;
+}
+
+.forum-form button:hover {
+  background: linear-gradient(145deg, #ffb997, #ef8354);
+  box-shadow: 0 0 15px rgba(239, 131, 84, 0.6);
+}
+
+/* Input de upload de arquivo */
+.forum-form input[type="file"] {
+  padding: 0.5rem;
+}
+
+/* Melhor organização para o select */
+.forum-form select {
+  cursor: pointer;
+}
+
+/* Estilo dos posts e comentários (revisado para consistência) */
+.post {
+  background: linear-gradient(145deg, #2a2a3d, #1e1e30);
+  border-left: 4px solid #ef8354;
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+  transition: background 0.3s, transform 0.3s;
+  position: relative;
+  text-align: center;
+  min-height: 200px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.post:hover,
+.comment:hover {
+  background: linear-gradient(145deg, #2e2e4a, #202033);
+  transform: translateY(-3px);
+}
+
+/* Título do post centralizado */
+.post h3 {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.post h3::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 80%;
+  margin: 1rem auto 0;
+  background: linear-gradient(to right, transparent, #ef8354, transparent);
+  border-radius: 5px;
+}
+
+/* Separador elegante entre posts */
+.post + .post {
+  margin-top: 2rem;
+  position: relative;
+}
+
+.post + .post::before {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 80%;
+  margin: -1rem auto 1rem;
+  background: linear-gradient(to right, transparent, #ef8354, transparent);
+  border-radius: 5px;
+}
+
+/* Seção de comentários dentro do post */
+.comment-section {
+  margin-top: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: left;
+  min-height: 80px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.comment-section h4 {
+  color: #ef8354;
+  margin-bottom: 0.8rem;
+}
+
+.comment {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.6rem;
+  border-radius: 6px;
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Separador entre comentários, mais leve */
+.comment + .comment::before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 85%;
+  margin: 1.5rem auto;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1px;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) { /* Ajustado o breakpoint para acomodar as 2 colunas */
+  .forum-layout-columns {
+    flex-direction: column; /* Colunas empilham em telas menores */
+    align-items: center;
+  }
+
+  .forum-main, .forum-right-sidebar {
+    width: 100%; /* Ocupa a largura total em telas pequenas */
+    max-width: 900px; /* Mantém um max-width para não esticar demais */
+    min-width: unset; /* Remove min-width fixo */
+  }
+
+  .forum-main {
+    order: 1; /* Garante que o conteúdo principal venha primeiro */
+  }
+
+  .forum-right-sidebar {
+    order: 2; /* Garante que a sidebar venha depois do conteúdo principal */
+    margin-top: 2rem; /* Adiciona um espaço extra entre eles */
+  }
+}
+
+@media (max-width: 640px) {
+  .forum-container {
+    padding: 1rem;
+  }
+  
+  .forum-main {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .forum-form input,
+  .forum-form textarea,
+  .forum-form select {
+    width: 90%;
+  }
+
+  .forum-form-container h3 {
+    font-size: 1.5rem;
+  }
+
+  .post {
+    padding: 1.5rem;
+  }
+  
+  .forum-right-sidebar {
+    padding: 1rem;
+  }
+}

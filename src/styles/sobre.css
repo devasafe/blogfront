@@ -1,0 +1,121 @@
+/* src/styles/sobre.css ou integrado em App.css/index.css */
+
+/* Estilos para o container principal da página Sobre */
+.sobre-container {
+    max-width: 900px;
+    margin: 4rem auto; /* Centraliza e adiciona margem vertical */
+    padding: 3rem;
+    background: rgba(25, 26, 41, 0.9); /* Fundo escuro semitransparente */
+    backdrop-filter: blur(15px); /* Efeito de blur para profundidade */
+    border-radius: 20px; /* Cantos arredondados */
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.7); /* Sombra mais intensa */
+    color: #e5e5e5; /* Cor de texto padrão */
+    text-align: center; /* Centraliza o texto */
+    border: 1px solid rgba(239, 131, 84, 0.3); /* Borda sutil */
+}
+
+/* Título principal da página */
+.sobre-container h1 {
+    color: #ef8354; /* Cor de destaque laranja */
+    font-size: 3.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+/* Linha decorativa abaixo do título */
+.sobre-container h1::after {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(to right, transparent, #ef8354, transparent);
+    border-radius: 3px;
+    margin: 0.8rem auto 0;
+}
+
+/* Parágrafos de texto */
+.sobre-container p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #cccccc; /* Tom de cinza para o texto */
+    text-align: justify; /* Justifica o texto para melhor leitura */
+    padding: 0 1rem;
+}
+
+/* Estilo para o título do aviso */
+.sobre-container strong {
+    color: #ffb997; /* Laranja mais claro para destaque */
+    font-size: 1.2rem;
+}
+
+/* Container do aviso importante */
+.aviso-importante {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    background: rgba(239, 131, 84, 0.1); /* Fundo laranja sutil para o aviso */
+    border-left: 5px solid #ef8354; /* Borda laranja forte à esquerda */
+    border-radius: 10px;
+    text-align: left; /* Alinha o texto do aviso à esquerda */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.aviso-importante p {
+    font-size: 1rem;
+    color: #f0f0f0; /* Cor de texto para o aviso */
+    margin-bottom: 0.5rem;
+    padding: 0; /* Remove padding extra do parágrafo dentro do aviso */
+}
+
+/* Estilo para o bloco de código (ASCII art) */
+.sobre-container pre {
+    background: #1a1a2e; /* Fundo escuro para o código/arte */
+    border: 1px solid #ef8354; /* Borda laranja para o estilo hacker */
+    padding: 1.5rem;
+    margin-top: 3rem;
+    border-radius: 10px;
+    overflow-x: auto; /* Permite rolagem horizontal se a arte for muito larga */
+    font-family: 'Courier New', Courier, monospace; /* Fonte monoespaçada */
+    color: #00ff00; /* Verde neon para o texto hacker */
+    font-size: 0.7rem; /* Tamanho da fonte ajustado para ASCII art */
+    line-height: 1; /* Linha mais apertada */
+    text-align: left; /* Alinha o ASCII art à esquerda dentro do bloco */
+    box-shadow: 0 5px 25px rgba(0, 255, 0, 0.2); /* Sombra verde sutil */
+}
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+    .sobre-container {
+        padding: 2rem 1.5rem;
+        margin: 2rem auto;
+    }
+
+    .sobre-container h1 {
+        font-size: 2.5rem;
+    }
+
+    .sobre-container p {
+        font-size: 1rem;
+        padding: 0;
+    }
+
+    .aviso-importante {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sobre-container {
+        padding: 1.5rem 1rem;
+    }
+
+    .sobre-container h1 {
+        font-size: 2rem;
+    }
+
+    .sobre-container pre {
+        font-size: 0.6rem;
+        padding: 1rem;
+    }
+}
