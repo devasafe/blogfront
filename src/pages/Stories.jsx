@@ -5,7 +5,7 @@ export default function Stories() {
   const [topStories, setTopStories] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:4000/forum/top')
+    axios.get('https://zchannel.onrender.com')
   // Busca os posts da rota criada
       .then(res => setTopStories(res.data))
       .catch(err => console.error('Erro ao buscar histórias:', err));
