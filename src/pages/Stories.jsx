@@ -12,7 +12,7 @@ export default function Stories() {
 
   return (
     <div>
-      <h1>Histórias mais curtidas</h1>
+      <h1>🔥 Ranking de Posts 🔥</h1>
       {topStories.map(story => {
         // As lógicas de upvotes/downvotes baseadas em voters map
         const upvotes = story.voters ? Object.values(story.voters).filter(v => v === 'up').length : 0;
