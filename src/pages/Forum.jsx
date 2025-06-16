@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+// import { marked } from "marked"; // REMOVIDO: Não precisamos mais da biblioteca marked
 import "../styles/forum.css";
 import "../App.css";
 import "../index.css";
@@ -151,9 +152,8 @@ export default function Forum() {
   };
 
   return (
-    // O .forum-container do CSS agora será o div pai que controla o layout de colunas
-    <div className="forum-container"> 
-      <div className="forum-layout-columns"> {/* NOVO: Div para o layout de duas colunas */}
+    <div className="forum-container">
+      <div className="forum-layout-columns">
         {/* Conteúdo principal (formulário e listagem de posts) */}
         <section className="forum-main">
           <h2>Fórum</h2>
@@ -205,15 +205,14 @@ export default function Forum() {
           {posts
             .filter(post =>
               !selectedCategory ||
-              (post.type && post.type.toLowerCase() === selectedCategory.toLowerCase()) // Filtragem case-insensitive
+              (post.type && post.type.toLowerCase() === selectedCategory.toLowerCase())
             )
             .map((post) => (
               <div key={post._id} className="post">
-                {/* Adicionado onClick para lidar com o clique no post */}
                 <div onClick={() => handlePostClick(post._id)} style={{ cursor: 'pointer' }}>
                   <h3>{post.title} ({post.type})</h3>
-                  <p>{post.content}</p>
-                  {/* Exibição da imagem, se houver */}
+                  {/* ALTERADO: Voltando para <p> e adicionando className para estilo de quebra de linha */}
+                  <p className="post-content">{post.content}</p>
                   {post.file && (
                     <div className="post-media">
                       <img src={post.file} alt="Post Media" style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }} />
@@ -225,24 +224,22 @@ export default function Forum() {
                   </p>
                 </div>
 
-                {/* Seção de votos */}
                 <div className="post-votes">
                   <button onClick={() => handleVote(post._id, 'up')}>👍</button>
                   <span>{post.votes}</span>
                   <button onClick={() => handleVote(post._id, 'down')}>👎</button>
                 </div>
 
-                {/* Exibição de comentários */}
                 <div className="comment-section">
                   <h4>Comentários</h4>
-                  {/* Inverte a ordem dos comentários para que o mais novo fique embaixo */}
                   {comments[post._id]?.slice(0, 3).slice().reverse().map(c => (
                     <div key={c._id} className="comment">
                       <p>
                         <b>{c.user?.username}</b> comentou em{" "}
                         {new Date(c.createdAt).toLocaleString()}
                       </p>
-                      <p>{c.content}</p>
+                      {/* ALTERADO: Voltando para <p> e adicionando className para estilo de quebra de linha */}
+                      <p className="comment-content">{c.content}</p>
                     </div>
                   ))}
                   <textarea
@@ -258,11 +255,10 @@ export default function Forum() {
             ))}
         </section>
 
-        {/* NOVO: Sidebar de categorias à direita */}
+        {/* Sidebar de categorias à direita */}
         <aside className="forum-right-sidebar">
           <h3>Categorias</h3>
           <ul>
-            {/* Adicionado "Mostrar todas" no início para sempre ter uma opção de ver tudo */}
             <li
               className={!selectedCategory ? "active" : ""}
               onClick={() => setSelectedCategory("")}
