@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-/* NOVO: Container para as colunas de layout (conteúdo principal e sidebar direita) */
+/* Container para as colunas de layout (conteúdo principal e sidebar direita) */
 .forum-layout-columns {
   display: flex;
   gap: 2rem; /* Espaçamento entre as colunas */
@@ -22,7 +22,7 @@
 .forum-main {
   flex: 1; /* Permite que ocupe o espaço restante */
   max-width: 900px; /* Largura máxima para o conteúdo principal */
-  min-width: 900px; /* Ajustado para ser um pouco mais flexível na largura mínima */
+  min-width: 650px; /* Ajustado para ser um pouco mais flexível na largura mínima */
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -35,7 +35,7 @@
   box-sizing: border-box;
 }
 
-/* NOVO: Sidebar de categorias (agora à direita) */
+/* Sidebar de categorias (agora à direita) */
 .forum-right-sidebar {
   width: 280px; /* Ajustado para ser um pouco mais largo, se desejar */
   background: rgba(255, 255, 255, 0.08);
@@ -89,12 +89,11 @@
 /* Container geral do formulário (mantido como está, mas seu pai é agora .forum-main) */
 .forum-form-container {
   width: 100%; /* Ocupa 100% da largura do .forum-main */
-  /* Removido o width fixo de 800px, agora ele se adapta ao forum-main */
-  background: none; /* Remove background pois já está no forum-main */
-  padding: 0; /* Removido padding, já está no forum-main ou será ajustado nos elementos internos */
-  border-radius: 0; /* Removido */
-  box-shadow: none; /* Removido */
-  backdrop-filter: none; /* Removido */
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -142,7 +141,7 @@
   border-radius: 10px;
   border: none;
   background: rgba(255, 255, 255, 0.12);
-  color: #7e7e7e;
+  color: #ffffff;
   font-size: 1rem;
   outline: none;
   transition: border 0.3s ease, box-shadow 0.3s ease;
@@ -206,6 +205,16 @@
   width: 100%;
   box-sizing: border-box;
 }
+
+/* NOVO: Estilo para o parágrafo dentro do post para respeitar a formatação */
+.post p {
+  white-space: pre-wrap; /* Preserva espaços e quebras de linha, e quebra texto */
+  text-align: left; /* Garante alinhamento à esquerda para o conteúdo do post */
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #e0e0e0;
+}
+
 
 .post:hover,
 .comment:hover {
